@@ -1,0 +1,47 @@
+#                                               -*- Autoconf -*-
+# Process this file with autoconf to produce a configure script.
+
+AC_PREREQ(2.61)
+AC_INIT(pidgin-hide-chat, 0.1)
+AM_INIT_AUTOMAKE
+AC_CONFIG_SRCDIR([src/hide_chat.c])
+AC_CONFIG_HEADER([config.h])
+AC_CONFIG_MACRO_DIR([m4])
+
+AC_DEFINE_UNQUOTED(PLUGIN_VERSION, ["0.1"], [version])
+
+AC_DEFINE_UNQUOTED(PLUGIN_WEBSITE, ["http://freakazoid.teamblind.de/"], [website])
+
+AC_DEFINE_UNQUOTED(PLUGIN_ID, ["gtk-freakazoid-hide-chat"], [pidgin internal plugin ID])
+
+AC_DEFINE_UNQUOTED(PLUGIN_STATIC_NAME, ["hide-chat"], [static name for debug output])
+
+AC_DEFINE_UNQUOTED(PLUGIN_AUTHOR, ["Konrad Gräfe <konradgraefe@aol.com>"], [the author])
+
+
+# Checks for programs.
+AC_PROG_CC
+AC_PROG_LIBTOOL
+AC_PROG_INTLTOOL
+GETTEXT_PACKAGE=pidgin-hide-chat
+AC_SUBST(GETTEXT_PACKAGE)
+AC_DEFINE_UNQUOTED(GETTEXT_PACKAGE, ["$GETTEXT_PACKAGE"], [Define the gettext package to be used])
+ALL_LINGUAS="de"
+AM_GLIB_GNU_GETTEXT
+
+# Checks for libraries.
+PKG_CHECK_MODULES(pidgin, [pidgin >= 2.6.0], , [AC_MSG_ERROR(pidgin >= 2.6.0 required! Please make sure that pidgin development files are installed.)])
+LIBS="$LIBS $pidgin_LIBS"
+CFLAGS="$CFLAGS $pidgin_CFLAGS -Wall"
+
+# Checks for header files.
+
+# Checks for typedefs, structures, and compiler characteristics.
+
+# Checks for library functions.
+
+AC_CONFIG_FILES([Makefile
+                 src/Makefile
+		 po/Makefile.in])
+AC_OUTPUT
+
