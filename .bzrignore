@@ -1,0 +1,16 @@
+Makefile
+config.h
+config.log
+config.status
+libtool
+stamp-h1
+po/Makefile
+po/Makefile.in
+po/POTFILES
+po/de.gmo
+po/stamp-it
+src/.deps
+src/.libs
+src/Makefile
+src/hide_chat.la
+src/hide_chat.lo
