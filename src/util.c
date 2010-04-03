@@ -19,6 +19,8 @@
 
 #include "config.h"
 
+#include "internal.h"
+
 #include "util.h"
 
 #include <debug.h>

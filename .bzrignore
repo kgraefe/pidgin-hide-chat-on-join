@@ -15,3 +15,7 @@ src/Makefile
 src/hide_chat.la
 src/hide_chat.lo
 src/util.lo
+local.mak
+pidgin-hide-chat-0.2-win32.zip
+pidgin-hide-chat-0.2.tar.gz
+src/pidgin-hide-chat.dll

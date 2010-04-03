@@ -2,13 +2,13 @@
 # Process this file with autoconf to produce a configure script.
 
 AC_PREREQ(2.61)
-AC_INIT(pidgin-hide-chat, 0.1)
+AC_INIT(pidgin-hide-chat, 0.2)
 AM_INIT_AUTOMAKE
 AC_CONFIG_SRCDIR([src/hide_chat.c])
 AC_CONFIG_HEADER([config.h])
 AC_CONFIG_MACRO_DIR([m4])
 
-AC_DEFINE_UNQUOTED(PLUGIN_VERSION, ["0.1"], [version])
+AC_DEFINE_UNQUOTED(PLUGIN_VERSION, ["0.2"], [version])
 
 AC_DEFINE_UNQUOTED(PLUGIN_WEBSITE, ["http://freakazoid.teamblind.de/"], [website])
 
