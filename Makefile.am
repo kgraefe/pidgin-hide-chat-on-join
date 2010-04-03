@@ -2,7 +2,7 @@ EXTRA_DIST = \
 	ChangeLog \
 	VERSION \
 	src/internal.h \
-	src/hide_chat.c
+	src/util.h
 
 
 SUBDIRS = src po
