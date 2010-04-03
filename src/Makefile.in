@@ -68,7 +68,7 @@ am__base_list = \
 am__installdirs = "$(DESTDIR)$(plugindir)"
 LTLIBRARIES = $(plugin_LTLIBRARIES)
 hide_chat_la_LIBADD =
-am_hide_chat_la_OBJECTS = hide_chat.lo
+am_hide_chat_la_OBJECTS = util.lo hide_chat.lo
 hide_chat_la_OBJECTS = $(am_hide_chat_la_OBJECTS)
 hide_chat_la_LINK = $(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) \
 	$(LIBTOOLFLAGS) --mode=link $(CCLD) $(AM_CFLAGS) $(CFLAGS) \
@@ -231,6 +231,7 @@ top_srcdir = @top_srcdir@
 plugindir = $(libdir)/pidgin
 plugin_LTLIBRARIES = hide_chat.la
 hide_chat_la_SOURCES = \
+	util.c \
 	hide_chat.c
 
 hide_chat_la_LDFLAGS = -module -avoid-version
@@ -309,6 +310,7 @@ distclean-compile:
 	-rm -f *.tab.c
 
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/hide_chat.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/util.Plo@am__quote@
 
 .c.o:
 @am__fastdepCC_TRUE@	$(COMPILE) -MT $@ -MD -MP -MF $(DEPDIR)/$*.Tpo -c -o $@ $<

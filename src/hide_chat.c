@@ -24,6 +24,7 @@
 #endif
 
 #include "internal.h"
+#include "util.h"
 
 #include <plugin.h>
 #include <version.h>
@@ -36,6 +37,20 @@
 #define GPOINTER_TO_BOOLEAN(i) ((gboolean) ((GPOINTER_TO_INT(i) == 2) ? TRUE : FALSE))
 
 PurplePlugin *plugin;
+
+static void conversation_created_cb(PurpleConversation *conv) {
+	PidginConversation *gtkconv;
+	PurpleBlistNode *node = NULL;
+
+	if(purple_conversation_get_type(conv) != PURPLE_CONV_TYPE_CHAT) return;
+
+	if(!(gtkconv = PIDGIN_CONVERSATION(conv))) return;
+	
+	if(!(node = (PurpleBlistNode *)purple_blist_find_chat(conv->account, conv->name))) return;
+
+	if(purple_blist_node_get_bool(node, "hide-on-join")) hide_conversation(gtkconv);
+
+}
 
 static void set_hide_on_join(PurpleBlistNode *node, gpointer data) {
 	purple_blist_node_set_bool(node, "hide-on-join", GPOINTER_TO_BOOLEAN(data));
@@ -54,17 +69,19 @@ static void extended_buddy_menu_cb(PurpleBlistNode *node, GList **menu) {
 }
 
 static gboolean plugin_load(PurplePlugin *_plugin) {
-	plugin=_plugin;
+	plugin = _plugin;
 	
 	purple_signal_connect(purple_blist_get_handle(), "blist-node-extended-menu", plugin, PURPLE_CALLBACK(extended_buddy_menu_cb), NULL);
 
-	purple_debug(PURPLE_DEBUG_INFO, PLUGIN_STATIC_NAME, _("loaded.\n"));
+	purple_signal_connect(purple_conversations_get_handle(), "conversation-created", plugin, PURPLE_CALLBACK(conversation_created_cb), NULL);
+
+	purple_debug_info(PLUGIN_STATIC_NAME, _("loaded.\n"));
 	
 	return TRUE;
 }
 
 static gboolean plugin_unload(PurplePlugin *plugin) {
-	purple_debug(PURPLE_DEBUG_INFO, PLUGIN_STATIC_NAME, _("unloaded.\n"));
+	purple_debug_info(PLUGIN_STATIC_NAME, _("unloaded.\n"));
 	
 	return TRUE;
 }

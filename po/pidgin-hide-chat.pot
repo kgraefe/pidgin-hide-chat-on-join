@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-04-03 08:14+0200\n"
+"POT-Creation-Date: 2010-04-03 13:10+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -16,22 +16,22 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../src/hide_chat.c:50
+#: ../src/hide_chat.c:65
 msgid "Do not hide on join"
 msgstr ""
 
-#: ../src/hide_chat.c:52
+#: ../src/hide_chat.c:67
 msgid "Hide on join"
 msgstr ""
 
-#: ../src/hide_chat.c:61
+#: ../src/hide_chat.c:78
 msgid "loaded.\n"
 msgstr ""
 
-#: ../src/hide_chat.c:67
+#: ../src/hide_chat.c:84
 msgid "unloaded.\n"
 msgstr ""
 
-#: ../src/hide_chat.c:122
+#: ../src/hide_chat.c:139
 msgid "Hide Chat on Join"
 msgstr ""

@@ -14,3 +14,4 @@ src/.libs
 src/Makefile
 src/hide_chat.la
 src/hide_chat.lo
+src/util.lo

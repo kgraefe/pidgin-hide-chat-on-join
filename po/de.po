@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pidgin-hide-chat-on-join\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-04-03 08:14+0200\n"
+"POT-Creation-Date: 2010-04-03 13:10+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Konrad Gräfe <konradgraefe@aol.com>\n"
 "Language-Team: de_DE <konradgraefe@aol.com>\n"
@@ -15,23 +15,26 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../src/hide_chat.c:50
+#: ../src/hide_chat.c:65
 msgid "Do not hide on join"
 msgstr ""
 
-#: ../src/hide_chat.c:52
+#: ../src/hide_chat.c:67
 #, fuzzy
 msgid "Hide on join"
 msgstr "Hide Chat on Join"
 
-#: ../src/hide_chat.c:61
+#: ../src/hide_chat.c:78
 msgid "loaded.\n"
 msgstr "ist geladen.\n"
 
-#: ../src/hide_chat.c:67
+#: ../src/hide_chat.c:84
 msgid "unloaded.\n"
 msgstr "ist entladen.\n"
 
-#: ../src/hide_chat.c:122
+#: ../src/hide_chat.c:139
 msgid "Hide Chat on Join"
 msgstr "Hide Chat on Join"
+
+#~ msgid "/Conversation/_Close"
+#~ msgstr "/Unterhaltung/S_chließen"
