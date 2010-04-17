@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-04-17 13:55+0200\n"
+"POT-Creation-Date: 2010-04-17 15:32+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -16,31 +16,31 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../src/hide_chat.c:65
+#: ../src/hide_chat.c:62
 msgid "Do not hide on join"
 msgstr ""
 
-#: ../src/hide_chat.c:67
+#: ../src/hide_chat.c:64
 msgid "Hide on join"
 msgstr ""
 
-#: ../src/hide_chat.c:78
+#: ../src/hide_chat.c:75
 msgid "loaded.\n"
 msgstr ""
 
-#: ../src/hide_chat.c:84
+#: ../src/hide_chat.c:81
 msgid "unloaded.\n"
 msgstr ""
 
-#: ../src/hide_chat.c:139
+#: ../src/hide_chat.c:136
 msgid "Hide Chat on Join"
 msgstr ""
 
-#: ../src/hide_chat.c:140
+#: ../src/hide_chat.c:137
 msgid "This plugin enables you to hide some chats while auto-joining them."
 msgstr ""
 
-#: ../src/hide_chat.c:141
+#: ../src/hide_chat.c:138
 msgid ""
 "This plugin adds an entry in the context menu of every channel you have in "
 "your buddy list to allow you to hide the chat window when you join the "

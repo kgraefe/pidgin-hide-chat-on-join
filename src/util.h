@@ -22,6 +22,9 @@
 
 #include <gtkconv.h>
 
+#define GBOOLEAN_TO_POINTER(i) (GINT_TO_POINTER ((i) ? 2 : 1))
+#define GPOINTER_TO_BOOLEAN(i) ((gboolean) ((GPOINTER_TO_INT(i) == 2) ? TRUE : FALSE))
+
 void hide_conversation(PidginConversation *gtkconv);
 
 #endif /* _UTIL_H */

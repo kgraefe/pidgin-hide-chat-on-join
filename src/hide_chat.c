@@ -33,9 +33,6 @@
 #include <gtkutils.h>
 #include <gtkdebug.h>
 
-#define GBOOLEAN_TO_POINTER(i) (GINT_TO_POINTER ((i) ? 2 : 1))
-#define GPOINTER_TO_BOOLEAN(i) ((gboolean) ((GPOINTER_TO_INT(i) == 2) ? TRUE : FALSE))
-
 PurplePlugin *plugin;
 
 static void conversation_created_cb(PurpleConversation *conv) {
