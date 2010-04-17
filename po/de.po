@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pidgin-hide-chat-on-join\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-04-03 13:10+0200\n"
+"POT-Creation-Date: 2010-04-17 13:55+0200\n"
 "PO-Revision-Date: 2010-04-04 04:39+0000\n"
 "Last-Translator: kgraefe <Unknown>\n"
 "Language-Team: de_DE <konradgraefe@aol.com>\n"
@@ -36,6 +36,19 @@ msgstr "ist entladen.\n"
 #: ../src/hide_chat.c:139
 msgid "Hide Chat on Join"
 msgstr "Verstecke Chat beim Verbinden"
+
+#: ../src/hide_chat.c:140
+msgid "This plugin enables you to hide some chats while auto-joining them."
+msgstr ""
+
+#: ../src/hide_chat.c:141
+msgid ""
+"This plugin adds an entry in the context menu of every channel you have in "
+"your buddy list to allow you to hide the chat window when you join the "
+"channel. (This is usefull when you have a huge amount of channels in your "
+"buddy list and don't want to have all of these poping up each time you start "
+"Pidgin.)"
+msgstr ""
 
 #~ msgid "/Conversation/_Close"
 #~ msgstr "/Unterhaltung/S_chließen"

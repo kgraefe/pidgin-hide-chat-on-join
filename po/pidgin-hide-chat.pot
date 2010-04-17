@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-04-03 13:10+0200\n"
+"POT-Creation-Date: 2010-04-17 13:55+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -34,4 +34,17 @@ msgstr ""
 
 #: ../src/hide_chat.c:139
 msgid "Hide Chat on Join"
+msgstr ""
+
+#: ../src/hide_chat.c:140
+msgid "This plugin enables you to hide some chats while auto-joining them."
+msgstr ""
+
+#: ../src/hide_chat.c:141
+msgid ""
+"This plugin adds an entry in the context menu of every channel you have in "
+"your buddy list to allow you to hide the chat window when you join the "
+"channel. (This is usefull when you have a huge amount of channels in your "
+"buddy list and don't want to have all of these poping up each time you start "
+"Pidgin.)"
 msgstr ""

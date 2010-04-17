@@ -121,10 +121,10 @@ static PurplePluginInfo info = {
 };
 
 static void init_plugin(PurplePlugin *plugin) {
+#ifdef ENABLE_NLS
 	const char *str = "Hide Chat on Join";
 	gchar *plugins_locale_dir;
 
-#ifdef ENABLE_NLS
 	plugins_locale_dir = g_build_filename(purple_user_dir(), "locale", NULL);
 
 	bindtextdomain(GETTEXT_PACKAGE, plugins_locale_dir);
@@ -137,8 +137,8 @@ static void init_plugin(PurplePlugin *plugin) {
 #endif /* ENABLE_NLS */
 
         info.name        = _("Hide Chat on Join");
-        info.summary     = "";
-        info.description = "";
+        info.summary     = _("This plugin enables you to hide some chats while auto-joining them.");
+        info.description = _("This plugin adds an entry in the context menu of every channel you have in your buddy list to allow you to hide the chat window when you join the channel. (This is usefull when you have a huge amount of channels in your buddy list and don't want to have all of these poping up each time you start Pidgin.)");
 }
 
 PURPLE_INIT_PLUGIN(plugin, init_plugin, info)
