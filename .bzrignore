@@ -22,3 +22,8 @@ src/pidgin-hide-chat.dll
 src/context_menu.lo
 src/conversation_handler.lo
 pidgin-hide-chat-0.2-win32.zip.asc
+pidgin-hide-chat-0.3-win32.zip
+DEB_REVISION
+pidgin-hide-chat-0.3.tar.gz
+pidgin-hide-chat-0.3.tar.gz.asc
+pidgin-hide-chat-0.3-win32.zip.asc

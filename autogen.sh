@@ -1,21 +1,21 @@
 #! /bin/sh
+set -x
 
-ls VERSION >/dev/null && 
-ls configure.in.in >/dev/null &&
-ls COPYING >/dev/null &&
-echo generating configure.in &&
-sed "s/@@VERSION@@/$(cat VERSION)/" configure.in.in >configure.in &&
-echo aclocal &&
-aclocal &&
-echo autoheader &&
-autoheader &&
-echo libtoolize --copy &&
-libtoolize --copy &&
-echo automake --add-missing --copy &&
-automake --add-missing --copy &&
-echo autoconf &&
-autoconf &&
-echo libtoolize --copy --install &&
-libtoolize --copy --install &&
-echo intltoolize --copy --force &&
-intltoolize --copy --force 
+test -f VERSION || exit
+test -f ChangeLog|| exit
+test -f configure.in.in || exit
+test -f COPYING || exit
+
+languages=""
+for f in po/*.po
+do test -f $f && languages="$languages $(basename $f .po)"
+done
+
+sed -e "s/@@VERSION@@/$(cat VERSION)/" -e "s/@@LANGUAGES@@/$(echo $languages)/" configure.in.in >configure.in || exit
+aclocal || exit
+autoheader || exit
+libtoolize --copy || exit
+automake --add-missing --copy || exit
+autoconf || exit
+libtoolize --copy --install || exit
+intltoolize --copy --force  || exit

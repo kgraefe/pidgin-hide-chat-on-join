@@ -66,7 +66,7 @@
 #define PACKAGE_NAME "pidgin-hide-chat"
 
 /* Define to the full name and version of this package. */
-#define PACKAGE_STRING "pidgin-hide-chat 0.2"
+#define PACKAGE_STRING "pidgin-hide-chat 0.3"
 
 /* Define to the one symbol short name of this package. */
 #define PACKAGE_TARNAME "pidgin-hide-chat"
@@ -75,7 +75,7 @@
 #define PACKAGE_URL ""
 
 /* Define to the version of this package. */
-#define PACKAGE_VERSION "0.2"
+#define PACKAGE_VERSION "0.3"
 
 /* the author */
 #define PLUGIN_AUTHOR "Konrad Gräfe <konradgraefe@aol.com>"
@@ -87,7 +87,7 @@
 #define PLUGIN_STATIC_NAME "hide-chat"
 
 /* version */
-#define PLUGIN_VERSION "0.2"
+#define PLUGIN_VERSION "0.3"
 
 /* website */
 #define PLUGIN_WEBSITE "http://freakazoid.teamblind.de/"
@@ -96,4 +96,4 @@
 #define STDC_HEADERS 1
 
 /* Version number of package */
-#define VERSION "0.2"
+#define VERSION "0.3"
