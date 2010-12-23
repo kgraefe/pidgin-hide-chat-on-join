@@ -1,6 +1,9 @@
 #!/bin/bash
+set -x
 cd po
-echo "Updating POT template..."
 intltool-update -po
-echo "Checking german language file..."
-intltool-update de
+
+for f in *.po
+do test -f $f && intltool-update ${f%.po}
+done
+

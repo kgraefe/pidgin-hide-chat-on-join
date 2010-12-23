@@ -17,12 +17,11 @@
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02111-1301, USA.
  */
 
-#ifndef _UTIL_H
-#define _UTIL_H
+#ifndef _CONVERSATION_HANDLER_H
+#define _CONVERSATION_HANDLER_H
 
-#include <gtkconv.h>
+#include <plugin.h>
 
-#define GBOOLEAN_TO_POINTER(i) (GINT_TO_POINTER ((i) ? 2 : 1))
-#define GPOINTER_TO_BOOLEAN(i) ((gboolean) ((GPOINTER_TO_INT(i) == 2) ? TRUE : FALSE))
+void conversation_handler_init(PurplePlugin *plugin);
 
-#endif /* _UTIL_H */
+#endif /* _CONVERSATION_HANDLER_H */

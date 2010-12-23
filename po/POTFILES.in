@@ -1,1 +1,3 @@
+src/context_menu.c
+src/conversation_handler.c
 src/hide_chat.c

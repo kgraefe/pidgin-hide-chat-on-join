@@ -19,3 +19,6 @@ local.mak
 pidgin-hide-chat-0.2-win32.zip
 pidgin-hide-chat-0.2.tar.gz
 src/pidgin-hide-chat.dll
+src/context_menu.lo
+src/conversation_handler.lo
+pidgin-hide-chat-0.2-win32.zip.asc
