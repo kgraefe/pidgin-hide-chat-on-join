@@ -22,6 +22,8 @@
 
 #include <plugin.h>
 
-void conversation_handler_init(PurplePlugin *plugin);
+void conversation_handler_init(void);
+
+void conversation_handler_uninit(void);
 
 #endif /* _CONVERSATION_HANDLER_H */

@@ -38,7 +38,7 @@ static gboolean plugin_load(PurplePlugin *_plugin) {
 	plugin = _plugin;
 	
 	context_menu_init(plugin);
-	conversation_handler_init(plugin);
+	conversation_handler_init();
 
 	purple_debug_info(PLUGIN_STATIC_NAME, _("loaded.\n"));
 	

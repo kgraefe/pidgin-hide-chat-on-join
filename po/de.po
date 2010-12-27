@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pidgin-hide-chat-on-join\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-12-23 23:10+0100\n"
+"POT-Creation-Date: 2010-12-27 23:44+0100\n"
 "PO-Revision-Date: 2010-04-18 04:37+0000\n"
 "Last-Translator: kgraefe <Unknown>\n"
 "Language-Team: de_DE <konradgraefe@aol.com>\n"
@@ -25,6 +25,10 @@ msgstr "Beim Betreten nicht verstecken"
 #: ../src/context_menu.c:41
 msgid "Hide on join"
 msgstr "Beim Betreten verstecken"
+
+#: ../src/conversation_handler.c:56
+msgid "Activate tabs to avoid flickering!\n"
+msgstr ""
 
 #: ../src/hide_chat.c:43
 msgid "loaded.\n"
