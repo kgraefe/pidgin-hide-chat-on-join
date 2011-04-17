@@ -1,3 +1,11 @@
+Version 0.4 (2010/12/27):
+	* new way to hide the chats (which avoids flickering!)
+
+Version 0.3 (2010/12/23):
+	* less ugly way to hide the chats (fixes #596633)
+	* automatically mark chats as persistent (you really don't want to close non-persistent chats immediately)
+	* fixed build error on Windows with recent Pidgin version
+
 Version 0.2 (2010/04/03)
 	* first hopefully working version
 

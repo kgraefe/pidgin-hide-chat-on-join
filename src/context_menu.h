@@ -17,12 +17,13 @@
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02111-1301, USA.
  */
 
-#ifndef _UTIL_H
-#define _UTIL_H
+#ifndef _CONTEXT_MENU_H
+#define _CONTEXT_MENU_H
 
-#include <gtkconv.h>
+#include <plugin.h>
 
-#define GBOOLEAN_TO_POINTER(i) (GINT_TO_POINTER ((i) ? 2 : 1))
-#define GPOINTER_TO_BOOLEAN(i) ((gboolean) ((GPOINTER_TO_INT(i) == 2) ? TRUE : FALSE))
+void context_menu_init(PurplePlugin *plugin);
 
-#endif /* _UTIL_H */
+#endif /* _CONTEXT_MENU_H */
+
+
