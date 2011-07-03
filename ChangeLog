@@ -1,3 +1,7 @@
+Version 1.0 (2011/07/03):
+	* fixed build issue (Bug #763499)
+	* Added russian language
+
 Version 0.4 (2010/12/27):
 	* new way to hide the chats (which avoids flickering!)
 

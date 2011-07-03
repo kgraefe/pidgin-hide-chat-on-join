@@ -12,7 +12,7 @@ mkdir -p ${WIN32DIR}/pidgin/plugins || exit
 sed 's/$/\r/' ChangeLog >${WIN32DIR}/ChangeLog.txt || exit
 sed 's/$/\r/' README.win32 >${WIN32DIR}/ReadMe.txt || exit
 cp src/${PROJECT}.dll ${WIN32DIR}/pidgin/plugins || exit
-i586-mingw32msvc-strip --strip-unneeded ${WIN32DIR}/pidgin/plugins/${PROJECT}.dll || exit
+#i586-mingw32msvc-strip --strip-unneeded ${WIN32DIR}/pidgin/plugins/${PROJECT}.dll || exit
 for f in po/*.po; do
 	if [ -f $f ]; then
 		lang=$(basename $f .po)

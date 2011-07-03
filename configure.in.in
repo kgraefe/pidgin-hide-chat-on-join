@@ -10,7 +10,7 @@ AC_CONFIG_MACRO_DIR([m4])
 
 AC_DEFINE_UNQUOTED(PLUGIN_VERSION, ["@@VERSION@@"], [version])
 
-AC_DEFINE_UNQUOTED(PLUGIN_WEBSITE, ["http://freakazoid.teamblind.de/"], [website])
+AC_DEFINE_UNQUOTED(PLUGIN_WEBSITE, ["http://freakazoid.teamblind.de/2011/07/03/pidgin-hide-chat-on-join/"], [website])
 
 AC_DEFINE_UNQUOTED(PLUGIN_ID, ["gtk-freakazoid-hide-chat"], [pidgin internal plugin ID])
 

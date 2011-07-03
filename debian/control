@@ -1,0 +1,21 @@
+Source: pidgin-hide-chat
+Section: net
+Priority: extra
+Maintainer: Konrad Gräfe <konradgraefe@aol.com>
+Build-Depends: debhelper (>= 7), autotools-dev, pidgin-dev (>= 2.6.0), intltool
+Standards-Version: 3.9.1
+Homepage: http://freakazoid.teamblind.de/2011/07/03/pidgin-hide-chat-on-join/
+
+Package: pidgin-hide-chat
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: Pidgin Hide Chat on Join
+ This plugin adds an entry in the context menu of every channel you have in your buddy list to allow you to hide the chat window when you join the channel. (This is usefull when you have a huge amount of channels in your buddy list and don't want to have all of these poping up each time you start Pidgin.)
+
+Package: pidgin-hide-chat-dbg
+Section: devel
+Architecture: any
+Depends: pidgin-hide-chat, ${misc:Depends}
+Description: Pidgin Hide Chat on Join Debug Symbols
+ Debug symbols for the Pidgin Hide Chat on Join plugin
+
