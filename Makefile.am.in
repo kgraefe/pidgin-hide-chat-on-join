@@ -1,5 +1,5 @@
 EXTRA_DIST = \
-	src/context_menu.h src/conversation_handler.h src/internal.h src/util.h \
+	@@HEADERFILES@@ \
 	config.h.mingw \
 	ChangeLog \
 	VERSION

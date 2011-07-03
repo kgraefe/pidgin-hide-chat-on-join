@@ -241,10 +241,10 @@ top_build_prefix = @top_build_prefix@
 top_builddir = @top_builddir@
 top_srcdir = @top_srcdir@
 EXTRA_DIST = \
+	src/context_menu.h src/conversation_handler.h src/internal.h src/util.h \
+	config.h.mingw \
 	ChangeLog \
-	VERSION \
-	src/internal.h \
-	src/util.h
+	VERSION
 
 SUBDIRS = src po
 ACLOCAL_AMFLAGS = -I m4

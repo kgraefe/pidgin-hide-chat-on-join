@@ -8,4 +8,7 @@ echo 1 >DEB_REVISION
 
 ./autogen.sh || exit
 ./configure || exit
-cp config.h config.h.mingw
+cp config.h config.h.mingw || exit
+
+./po-update.sh
+

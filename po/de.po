@@ -7,10 +7,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pidgin-hide-chat-on-join\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-12-27 23:44+0100\n"
+"POT-Creation-Date: 2011-07-03 12:06+0200\n"
 "PO-Revision-Date: 2010-10-27 07:46+0000\n"
 "Last-Translator: Sebastian Schlatow <Unknown>\n"
 "Language-Team: de_DE <konradgraefe@aol.com>\n"
+"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -43,8 +44,7 @@ msgstr "Verstecke Chat beim Verbinden"
 
 #: ../src/hide_chat.c:105
 msgid "This plugin enables you to hide some chats while auto-joining them."
-msgstr ""
-"Dieses Plugin verhindert das automatischen Öffnen der Chatraum-Fenster"
+msgstr "Dieses Plugin verhindert das automatischen Öffnen der Chatraum-Fenster"
 
 #: ../src/hide_chat.c:106
 msgid ""
