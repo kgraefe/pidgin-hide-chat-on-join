@@ -11,12 +11,12 @@ msgstr ""
 "PO-Revision-Date: 2010-10-27 07:50+0000\n"
 "Last-Translator: Ushakov Maxim <msincster@gmail.com>\n"
 "Language-Team: Russian <ru@li.org>\n"
-"Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-04-18 05:29+0000\n"
-"X-Generator: Launchpad (build 12735)\n"
+"X-Launchpad-Export-Date: 2011-07-04 05:02+0000\n"
+"X-Generator: Launchpad (build 13168)\n"
+"Language: ru\n"
 
 #: ../src/context_menu.c:39
 msgid "Do not hide on join"
@@ -44,7 +44,8 @@ msgstr "Прятать чат при входе"
 
 #: ../src/hide_chat.c:105
 msgid "This plugin enables you to hide some chats while auto-joining them."
-msgstr "Этот модуль позволяет скрывать некоторые чаты при автоматическом входе"
+msgstr ""
+"Этот модуль позволяет скрывать некоторые чаты при автоматическом входе"
 
 #: ../src/hide_chat.c:106
 msgid ""

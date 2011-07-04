@@ -11,12 +11,12 @@ msgstr ""
 "PO-Revision-Date: 2010-10-27 07:46+0000\n"
 "Last-Translator: Sebastian Schlatow <Unknown>\n"
 "Language-Team: de_DE <konradgraefe@aol.com>\n"
-"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-04-18 05:29+0000\n"
-"X-Generator: Launchpad (build 12735)\n"
+"X-Launchpad-Export-Date: 2011-07-04 05:02+0000\n"
+"X-Generator: Launchpad (build 13168)\n"
+"Language: \n"
 
 #: ../src/context_menu.c:39
 msgid "Do not hide on join"
@@ -44,7 +44,8 @@ msgstr "Verstecke Chat beim Verbinden"
 
 #: ../src/hide_chat.c:105
 msgid "This plugin enables you to hide some chats while auto-joining them."
-msgstr "Dieses Plugin verhindert das automatischen Öffnen der Chatraum-Fenster"
+msgstr ""
+"Dieses Plugin verhindert das automatischen Öffnen der Chatraum-Fenster"
 
 #: ../src/hide_chat.c:106
 msgid ""
