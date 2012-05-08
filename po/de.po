@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pidgin-hide-chat-on-join\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-05-06 04:54+0000\n"
-"PO-Revision-Date: 2012-05-03 15:42+0000\n"
+"POT-Creation-Date: 2012-05-08 05:21+0000\n"
+"PO-Revision-Date: 2012-05-07 12:58+0000\n"
 "Last-Translator: Dennis Baudys <Unknown>\n"
 "Language-Team: de_DE <konradgraefe@aol.com>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-05-07 04:48+0000\n"
-"X-Generator: Launchpad (build 15195)\n"
+"X-Launchpad-Export-Date: 2012-05-09 04:59+0000\n"
+"X-Generator: Launchpad (build 15213)\n"
 "Language: \n"
 
 #: ../src/context_menu.c:39
@@ -28,7 +28,7 @@ msgstr "Beim Betreten nicht öffnen"
 
 #: ../src/conversation_handler.c:56
 msgid "Activate tabs to avoid flickering!\n"
-msgstr ""
+msgstr "Aktivieren Sie Reiter, um Flackern zu vermeiden!\n"
 
 #: ../src/hide_chat.c:43
 msgid "loaded.\n"
