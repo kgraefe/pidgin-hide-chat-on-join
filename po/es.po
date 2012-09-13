@@ -1,4 +1,4 @@
-# Brazilian Portuguese translation for pidgin-hide-chat
+# Spanish translation for pidgin-hide-chat
 # Copyright (c) 2012 Rosetta Contributors and Canonical Ltd 2012
 # This file is distributed under the same license as the pidgin-hide-chat package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2012.
@@ -8,9 +8,9 @@ msgstr ""
 "Project-Id-Version: pidgin-hide-chat\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2012-10-18 04:51+0000\n"
-"PO-Revision-Date: 2012-08-27 20:05+0000\n"
-"Last-Translator: Renato Silva <Unknown>\n"
-"Language-Team: Brazilian Portuguese <pt_BR@li.org>\n"
+"PO-Revision-Date: 2012-09-12 12:15+0000\n"
+"Last-Translator: oskarman <oscarrinconcabezas@gmail.com>\n"
+"Language-Team: Spanish <es@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -19,32 +19,31 @@ msgstr ""
 
 #: ../src/context_menu.c:39
 msgid "Do not hide on join"
-msgstr "Não ocultar ao entrar"
+msgstr "No ocultar al unir"
 
 #: ../src/context_menu.c:41
 msgid "Hide on join"
-msgstr "Ocultar ao entrar"
+msgstr "Ocultar al unir"
 
 #: ../src/conversation_handler.c:56
 msgid "Activate tabs to avoid flickering!\n"
-msgstr "Ative as abas para evitar a luz intermitente!\n"
+msgstr "¡Activar pestañas para evitar el parpadeo!\n"
 
 #: ../src/hide_chat.c:43
 msgid "loaded.\n"
-msgstr "ativado.\n"
+msgstr "cargado.\n"
 
 #: ../src/hide_chat.c:49
 msgid "unloaded.\n"
-msgstr "desativado.\n"
+msgstr "descargado\n"
 
 #: ../src/hide_chat.c:104
 msgid "Hide Chat on Join"
-msgstr "Ocultar bate-papo ao entrar"
+msgstr ""
 
 #: ../src/hide_chat.c:105
 msgid "This plugin enables you to hide some chats while auto-joining them."
 msgstr ""
-"Este plug-in permite ocultar bate-papos que são abertos automaticamente."
 
 #: ../src/hide_chat.c:106
 msgid ""
@@ -54,8 +53,3 @@ msgid ""
 "buddy list and don't want to have all of these poping up each time you start "
 "Pidgin.)"
 msgstr ""
-"Este plug-in adiciona uma entrada no meu de contexto de cada canal IRC que "
-"você tem na lista de amigos para permitir que a janela de bate-papo seja "
-"escondida quando você entra no canal (isso é útil quando você tem uma grande "
-"quantidade de canais na sua lista de amigos e não quer todos eles aparecendo "
-" toda vez que iniciar o Pidgin)."
