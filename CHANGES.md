@@ -1,5 +1,10 @@
 # Pidgin Hide Chat On Join Changes
 
+## Version 1.1 (in development)
+- Add Brazilian Portuguese, Spanish and French language files
+- Update German and Russian language files
+- Update plugin website
+
 ## Version 1.0 (2011-07-03)
 - Fix build issue (Launchpad #763499)
 - Added russian language
