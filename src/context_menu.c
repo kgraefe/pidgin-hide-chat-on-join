@@ -33,16 +33,26 @@ static void set_hide_on_join(PurpleBlistNode *node, gpointer data) {
 static void extended_buddy_menu_cb(PurpleBlistNode *node, GList **menu) {
 	if(!PURPLE_BLIST_NODE_IS_CHAT(node)) return;
 	
-	if(purple_blist_node_get_flags(node) & PURPLE_BLIST_NODE_FLAG_NO_SAVE) return;
+	if(purple_blist_node_get_flags(node) & PURPLE_BLIST_NODE_FLAG_NO_SAVE)
+		return;
 
 	if(purple_blist_node_get_bool(node, "hide-on-join")) {
-		*menu = g_list_append(*menu, purple_menu_action_new(_("Do not hide on join"), PURPLE_CALLBACK(set_hide_on_join), GBOOLEAN_TO_POINTER(FALSE), NULL));
+		*menu = g_list_append(*menu, purple_menu_action_new(
+			_("Do not hide on join"), PURPLE_CALLBACK(set_hide_on_join),
+			GBOOLEAN_TO_POINTER(FALSE), NULL)
+		);
 	} else {
-		*menu = g_list_append(*menu, purple_menu_action_new(_("Hide on join"), PURPLE_CALLBACK(set_hide_on_join), GBOOLEAN_TO_POINTER(TRUE), NULL));
+		*menu = g_list_append(*menu, purple_menu_action_new(
+			_("Hide on join"), PURPLE_CALLBACK(set_hide_on_join),
+			GBOOLEAN_TO_POINTER(TRUE), NULL)
+		);
 	}
 }
 
 void context_menu_init(PurplePlugin *plugin) {
-	purple_signal_connect(purple_blist_get_handle(), "blist-node-extended-menu", plugin, PURPLE_CALLBACK(extended_buddy_menu_cb), NULL);
+	purple_signal_connect(
+		purple_blist_get_handle(), "blist-node-extended-menu", plugin,
+		PURPLE_CALLBACK(extended_buddy_menu_cb), NULL
+	);
 }
 

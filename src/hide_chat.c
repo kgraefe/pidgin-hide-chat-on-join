@@ -40,13 +40,13 @@ static gboolean plugin_load(PurplePlugin *_plugin) {
 	context_menu_init(plugin);
 	conversation_handler_init();
 
-	purple_debug_info(PLUGIN_STATIC_NAME, _("loaded.\n"));
+	info(_("loaded.\n"));
 	
 	return TRUE;
 }
 
 static gboolean plugin_unload(PurplePlugin *plugin) {
-	purple_debug_info(PLUGIN_STATIC_NAME, _("unloaded.\n"));
+	info(_("unloaded.\n"));
 	
 	return TRUE;
 }
@@ -55,29 +55,29 @@ static PurplePluginInfo info = {
 	PURPLE_PLUGIN_MAGIC,
 	PURPLE_MAJOR_VERSION,
 	PURPLE_MINOR_VERSION,
-	PURPLE_PLUGIN_STANDARD,				/**< type           */
-	NULL,						/**< ui_requirement */
-	0,						/**< flags          */
-	NULL,						/**< dependencies   */
-	PURPLE_PRIORITY_DEFAULT,			/**< priority       */
+	PURPLE_PLUGIN_STANDARD,  /**< type           */
+	NULL,                    /**< ui_requirement */
+	0,                       /**< flags          */
+	NULL,                    /**< dependencies   */
+	PURPLE_PRIORITY_DEFAULT, /**< priority       */
 
-	PLUGIN_ID,					/**< id             */
-	NULL,						/**< name           */
-	PLUGIN_VERSION,					/**< version        */
-	NULL,						/**  summary        */
+	PLUGIN_ID,               /**< id             */
+	NULL,                    /**< name           */
+	PLUGIN_VERSION,          /**< version        */
+	NULL,                    /**  summary        */
 				
-	NULL,						/**  description    */
-	PLUGIN_AUTHOR,					/**< author         */
-	PLUGIN_WEBSITE,					/**< homepage       */
+	NULL,                    /**  description    */
+	PLUGIN_AUTHOR,           /**< author         */
+	PLUGIN_WEBSITE,          /**< homepage       */
 
-	plugin_load,					/**< load           */
-	plugin_unload,					/**< unload         */
-	NULL,						/**< destroy        */
+	plugin_load,             /**< load           */
+	plugin_unload,           /**< unload         */
+	NULL,                    /**< destroy        */
 
-	NULL,						/**< ui_info        */
-	NULL,						/**< extra_info     */
-	NULL,						/**< prefs_info     */
-	NULL,						/**< actions        */
+	NULL,                    /**< ui_info        */
+	NULL,                    /**< extra_info     */
+	NULL,                    /**< prefs_info     */
+	NULL,                    /**< actions        */
 	/* padding */
 	NULL,
 	NULL,
@@ -101,9 +101,9 @@ static void init_plugin(PurplePlugin *plugin) {
 	g_free(plugins_locale_dir);
 #endif /* ENABLE_NLS */
 
-        info.name        = _("Hide Chat on Join");
-        info.summary     = _("This plugin enables you to hide some chats while auto-joining them.");
-        info.description = _("This plugin adds an entry in the context menu of every channel you have in your buddy list to allow you to hide the chat window when you join the channel. (This is usefull when you have a huge amount of channels in your buddy list and don't want to have all of these poping up each time you start Pidgin.)");
+	info.name        = _("Hide Chat on Join");
+	info.summary     = _("This plugin enables you to hide some chats while auto-joining them.");
+	info.description = _("This plugin adds an entry in the context menu of every channel you have in your buddy list to allow you to hide the chat window when you join the channel. (This is usefull when you have a huge amount of channels in your buddy list and don't want to have all of these poping up each time you start Pidgin.)");
 }
 
 PURPLE_INIT_PLUGIN(plugin, init_plugin, info)

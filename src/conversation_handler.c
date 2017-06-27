@@ -19,6 +19,7 @@
 
 #include "config.h"
 #include "internal.h"
+#include "util.h"
 
 #include "conversation_handler.h"
 
@@ -41,31 +42,38 @@ static void create_conversation_hook(PurpleConversation *conv) {
 	PurpleBlistNode *node = NULL;
 	PidginConvPlacementFunc place_ori;
 
+	/* Hide the conversation if it is a chat that is on our buddy list and hascw
+	 * the hide-on-join flag.
+	 */
 	if(
-		purple_conversation_get_type(conv) == PURPLE_CONV_TYPE_CHAT && 				/* is it a chat? */
-		(node = (PurpleBlistNode *)purple_blist_find_chat(conv->account, conv->name)) &&	/* is it on our buddy list? */
-		purple_blist_node_get_bool(node, "hide-on-join")					/* does it have to be hidden? */
+		purple_conversation_get_type(conv) == PURPLE_CONV_TYPE_CHAT &&
+		(node = (PurpleBlistNode *)purple_blist_find_chat(conv->account, conv->name)) &&
+		purple_blist_node_get_bool(node, "hide-on-join")
 	) {
-		/* hide it! */
 
-		/* Let's register our own placement function to place the conversation in a hidden conversation window to avoid flickering */
+		/* Let's register our own placement function to place the conversation
+		 * in a hidden conversation window to avoid flickering */
 		place_ori = pidgin_conv_placement_get_current_func();
 		pidgin_conv_placement_set_current_func(conv_placement_fnc);
 
 		if(!pidgin_conv_placement_get_current_func()) {
-			purple_debug_warning(PLUGIN_STATIC_NAME, _("Activate tabs to avoid flickering!\n"));
+			warning(_("Activate tabs to avoid flickering!\n"));
 		}
 
 		create_conversation_ori(conv);
 
 		pidgin_conv_placement_set_current_func(place_ori);
 
-		/* You really don't want to close chats immediatly that aren't persistent.... */
+		/* You really don't want to close chats immediatly that aren't
+		 * persistent....
+		 */
 		if(!purple_blist_node_get_bool(node, "gtk-persistent")) {
 			purple_blist_node_set_bool(node, "gtk-persistent", TRUE);
 		}
 
-		/* "close" persistent chat to get it moved over in Pidgin's hidden conversation window */
+		/* "close" persistent chat to get it moved over in Pidgin's hidden
+		 * conversation window
+		 */
 		gtk_button_clicked(GTK_BUTTON(PIDGIN_CONVERSATION(conv)->close));
 	} else {
 		create_conversation_ori(conv);
