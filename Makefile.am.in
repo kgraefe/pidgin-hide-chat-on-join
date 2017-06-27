@@ -1,7 +1,7 @@
 EXTRA_DIST = \
 	@@HEADERFILES@@ \
 	scripts/gen-mingw-config_h.sh \
-	ChangeLog \
+	CHANGES.md \
 	README.md \
 	VERSION
 
