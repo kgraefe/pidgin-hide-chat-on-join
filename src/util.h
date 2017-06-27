@@ -1,6 +1,6 @@
 /*
  * Pidgin Hide Chat on Join
- * Copyright (C) 2010 Konrad Gräfe
+ * Copyright (C) 2010-2017 Konrad Gräfe <konradgraefe@aol.com>
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License
