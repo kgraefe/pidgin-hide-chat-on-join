@@ -1,30 +1,22 @@
-#! /bin/sh
-set -x
+#!/bin/bash
 
-test -f VERSION || exit
-test -f ChangeLog|| exit
-test -f configure.in.in || exit
-test -f COPYING || exit
+set -e
 
-./po-update.sh || exit
+test -f Makefile.am.in
+test -f COPYING
 
-languages=""
-for f in po/*.po
-do test -f $f && languages="$languages $(basename $f .po)"
-done
+./scripts/gen-configure_ac.sh
 
 headers=""
-for f in src/*.h
-do test -f $f && headers="$headers $f"
+for f in src/*.h; do
+	test -f $f && headers="$headers $f"
 done
 
-sed -e "s/@@VERSION@@/$(cat VERSION)/" -e "s/@@LANGUAGES@@/$(echo $languages)/" configure.in.in >configure.in || exit
-sed -e "s#@@HEADERFILES@@#$(echo $headers)#" Makefile.am.in >Makefile.am || exit
-aclocal || exit
-autoheader || exit
-libtoolize --copy || exit
-automake --add-missing --copy || exit
-autoconf || exit
-libtoolize --copy --install || exit
-intltoolize --copy --force  || exit
+sed \
+	-e "s#@@HEADERFILES@@#$(echo $headers)#" \
+Makefile.am.in >Makefile.am
+
+mkdir -p m4
+intltoolize --force --copy --automake
+autoreconf --force --install --verbose
 
