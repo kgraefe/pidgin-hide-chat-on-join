@@ -1,7 +1,9 @@
 # French translation for pidgin-hide-chat
 # Copyright (c) 2013 Rosetta Contributors and Canonical Ltd 2013
 # This file is distributed under the same license as the pidgin-hide-chat package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, 2013.
+#
+# Translators:
+# londumas <helion331990@gmail.com>, 2013.
 #
 msgid ""
 msgstr ""

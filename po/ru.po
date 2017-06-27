@@ -1,7 +1,9 @@
 # Russian translation for pidgin-hide-chat
 # Copyright (c) 2010 Rosetta Contributors and Canonical Ltd 2010
 # This file is distributed under the same license as the pidgin-hide-chat package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, 2010.
+#
+# Translators:
+# Ushakov Maxim <msincster@gmail.com>, 2010.
 #
 msgid ""
 msgstr ""

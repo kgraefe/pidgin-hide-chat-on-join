@@ -1,8 +1,9 @@
 # Spanish translation for pidgin-hide-chat
 # Copyright (c) 2012 Rosetta Contributors and Canonical Ltd 2012
 # This file is distributed under the same license as the pidgin-hide-chat package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, 2012.
 #
+# Translators:
+# oskarman <oscarrinconcabezas@gmail.com>, 2012
 msgid ""
 msgstr ""
 "Project-Id-Version: pidgin-hide-chat\n"

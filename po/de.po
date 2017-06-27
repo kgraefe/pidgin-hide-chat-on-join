@@ -1,7 +1,9 @@
 # German translation for Pidgin Hide Chat on Join
 # Copyright (C) 2010 Konrad Gräfe <konradgraefe@aol.com>
 # This file is distributed under the same license as the pidgin-hide-chat-on-join package.
-# Konrad Gräfe <freakazoid@teamblind.de>, 2010
+#
+# Translators
+# Konrad Gräfe <konradgraefe@aol.com>, 2010
 #
 msgid ""
 msgstr ""
