@@ -2,6 +2,7 @@ EXTRA_DIST = \
 	@@HEADERFILES@@ \
 	config.h.mingw \
 	ChangeLog \
+	README.md \
 	VERSION
 
 
