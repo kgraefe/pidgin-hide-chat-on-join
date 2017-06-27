@@ -1,6 +1,6 @@
 EXTRA_DIST = \
 	@@HEADERFILES@@ \
-	config.h.mingw \
+	scripts/gen-mingw-config_h.sh \
 	ChangeLog \
 	README.md \
 	VERSION

@@ -104,9 +104,6 @@ install: all $(PIDGIN_INSTALL_PLUGINS_DIR)
 
 $(PLUGIN_OBJ): $(PLUGIN_TOP)/config.h $(PURPLE_VERSION_H)
 
-$(PLUGIN_TOP)/config.h: $(PLUGIN_TOP)/config.h.mingw
-	$(MAKE) -C $(PLUGIN_TOP) -f Makefile.mingw config.h
-
 ##
 ## BUILD DLL
 ##

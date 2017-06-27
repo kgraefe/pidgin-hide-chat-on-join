@@ -19,7 +19,7 @@
 /m4/
 /win32-install-dir
 /po/.intltool-merge-cache
-/.stamp-*
+/.stamps
 
 
 Makefile
