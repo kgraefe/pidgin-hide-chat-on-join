@@ -28,7 +28,7 @@
 
 static void (*create_conversation_ori)(PurpleConversation *conv);
 
-void conv_placement_fnc(PidginConversation *gtkconv) {
+static void conv_placement_fnc(PidginConversation *gtkconv) {
 	PidginWindow *win;
 
 	/* make a hidden conversation window, it will be destroyed soon */
