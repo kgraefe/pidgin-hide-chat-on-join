@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-07-03 12:57+0200\n"
+"POT-Creation-Date: 2017-06-28 16:51+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,15 +17,15 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../src/context_menu.c:39
+#: ../src/context_menu.c:41
 msgid "Do not hide on join"
 msgstr ""
 
-#: ../src/context_menu.c:41
+#: ../src/context_menu.c:46
 msgid "Hide on join"
 msgstr ""
 
-#: ../src/conversation_handler.c:56
+#: ../src/conversation_handler.c:60
 msgid "Activate tabs to avoid flickering!\n"
 msgstr ""
 
