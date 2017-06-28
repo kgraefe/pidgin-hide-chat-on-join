@@ -1,24 +1,22 @@
-# Brazilian Portuguese translation for pidgin-hide-chat
-# Copyright (c) 2012 Rosetta Contributors and Canonical Ltd 2012
-# This file is distributed under the same license as the pidgin-hide-chat package.
-#
-# Translators:
-# Renato Silva, 2012.
-#
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# 
+#, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: pidgin-hide-chat\n"
+"Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-06-28 16:50+0200\n"
-"PO-Revision-Date: 2012-08-27 20:05+0000\n"
-"Last-Translator: Renato Silva <Unknown>\n"
-"Language-Team: Brazilian Portuguese <pt_BR@li.org>\n"
-"Language: pt_BR\n"
+"POT-Creation-Date: 2017-06-28 16:51+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: Konrad Gräfe <konradgraefe@aol.com>, 2017\n"
+"Language-Team: Portuguese (Brazil) (https://www.transifex.com/kgraefe/teams/76234/pt_BR/)\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2014-04-29 06:24+0000\n"
-"X-Generator: Launchpad (build 16985)\n"
+"Language: pt_BR\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
 #: ../src/context_menu.c:41
 msgid "Do not hide on join"
@@ -54,11 +52,11 @@ msgid ""
 "This plugin adds an entry in the context menu of every channel you have in "
 "your buddy list to allow you to hide the chat window when you join the "
 "channel. (This is usefull when you have a huge amount of channels in your "
-"buddy list and don't want to have all of these poping up each time you start "
-"Pidgin.)"
+"buddy list and don't want to have all of these poping up each time you start"
+" Pidgin.)"
 msgstr ""
 "Este plug-in adiciona uma entrada no meu de contexto de cada canal IRC que "
 "você tem na lista de amigos para permitir que a janela de bate-papo seja "
-"escondida quando você entra no canal (isso é útil quando você tem uma grande "
-"quantidade de canais na sua lista de amigos e não quer todos eles "
+"escondida quando você entra no canal (isso é útil quando você tem uma grande"
+" quantidade de canais na sua lista de amigos e não quer todos eles "
 "aparecendo  toda vez que iniciar o Pidgin)."

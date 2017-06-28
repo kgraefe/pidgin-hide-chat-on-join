@@ -1,24 +1,22 @@
-# German translation for Pidgin Hide Chat on Join
-# Copyright (C) 2010 Konrad Gräfe <konradgraefe@aol.com>
-# This file is distributed under the same license as the pidgin-hide-chat-on-join package.
-#
-# Translators:
-# Konrad Gräfe <konradgraefe@aol.com>, 2010
-#
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# 
+#, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: pidgin-hide-chat-on-join\n"
+"Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-06-28 16:50+0200\n"
-"PO-Revision-Date: 2012-05-07 12:58+0000\n"
-"Last-Translator: Dennis Baudys <Unknown>\n"
-"Language-Team: de_DE <konradgraefe@aol.com>\n"
-"Language: \n"
+"POT-Creation-Date: 2017-06-28 16:51+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: Konrad Gräfe <konradgraefe@aol.com>, 2017\n"
+"Language-Team: German (https://www.transifex.com/kgraefe/teams/76234/de/)\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2014-04-29 06:24+0000\n"
-"X-Generator: Launchpad (build 16985)\n"
+"Language: de\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: ../src/context_menu.c:41
 msgid "Do not hide on join"
@@ -55,11 +53,11 @@ msgid ""
 "This plugin adds an entry in the context menu of every channel you have in "
 "your buddy list to allow you to hide the chat window when you join the "
 "channel. (This is usefull when you have a huge amount of channels in your "
-"buddy list and don't want to have all of these poping up each time you start "
-"Pidgin.)"
+"buddy list and don't want to have all of these poping up each time you start"
+" Pidgin.)"
 msgstr ""
-"Diese Erweiterung fügt einen Eintrag in den Kontextmenüs aller Chat-Räume in "
-"der Kontaktliste hinzu, mithilfe dessen Sie Unterhaltungsfenster beim "
-"Betreten dieser Chat-Räume automatisch verbergen können. (Dies ist nützlich, "
-"wenn man viele Chat-Räume/Kanäle in der Kontaktliste hat und diese nicht "
+"Diese Erweiterung fügt einen Eintrag in den Kontextmenüs aller Chat-Räume in"
+" der Kontaktliste hinzu, mithilfe dessen Sie Unterhaltungsfenster beim "
+"Betreten dieser Chat-Räume automatisch verbergen können. (Dies ist nützlich,"
+" wenn man viele Chat-Räume/Kanäle in der Kontaktliste hat und diese nicht "
 "immer alle geöffnet werden sollen, wenn man Pidgin startet.)"

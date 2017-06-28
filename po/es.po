@@ -1,23 +1,22 @@
-# Spanish translation for pidgin-hide-chat
-# Copyright (c) 2012 Rosetta Contributors and Canonical Ltd 2012
-# This file is distributed under the same license as the pidgin-hide-chat package.
-#
-# Translators:
-# oskarman <oscarrinconcabezas@gmail.com>, 2012
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# 
+#, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: pidgin-hide-chat\n"
+"Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-06-28 16:50+0200\n"
-"PO-Revision-Date: 2012-09-12 12:15+0000\n"
-"Last-Translator: oskarman <oscarrinconcabezas@gmail.com>\n"
-"Language-Team: Spanish <es@li.org>\n"
-"Language: es\n"
+"POT-Creation-Date: 2017-06-28 16:51+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: Konrad Gräfe <konradgraefe@aol.com>, 2017\n"
+"Language-Team: Spanish (https://www.transifex.com/kgraefe/teams/76234/es/)\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2014-04-29 06:24+0000\n"
-"X-Generator: Launchpad (build 16985)\n"
+"Language: es\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: ../src/context_menu.c:41
 msgid "Do not hide on join"
@@ -52,6 +51,6 @@ msgid ""
 "This plugin adds an entry in the context menu of every channel you have in "
 "your buddy list to allow you to hide the chat window when you join the "
 "channel. (This is usefull when you have a huge amount of channels in your "
-"buddy list and don't want to have all of these poping up each time you start "
-"Pidgin.)"
+"buddy list and don't want to have all of these poping up each time you start"
+" Pidgin.)"
 msgstr ""
