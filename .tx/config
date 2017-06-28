@@ -1,0 +1,8 @@
+[main]
+host = https://www.transifex.com
+
+[pidgin-hide-chat-on-join.base]
+file_filter = po/<lang>.po
+source_file = po/pidgin-hide-chat.pot
+source_lang = en
+type = PO
