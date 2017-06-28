@@ -12,8 +12,6 @@ PLUGIN_TOP :=		..
 PIDGIN_TREE_TOP ?=		../../../..
 include $(PIDGIN_TREE_TOP)/libpurple/win32/global.mak
 
-PLUGIN_VERSION := $(shell cat ${PLUGIN_TOP}/VERSION)
-
 ##
 ## VARIABLE DEFINITIONS
 ##
@@ -23,9 +21,6 @@ PLUGIN = pidgin-hide-chat
 # Compiler Options
 
 #CFLAGS = 
-
-DEFINES = -DPLUGIN_VERSION=\"$(PLUGIN_VERSION)\" -DGETTEXT_PACKAGE=\"$(PLUGIN)\" -DHAVE_CONFIG_H
-
 #LDFLAGS = 
 
 #-mwindows
