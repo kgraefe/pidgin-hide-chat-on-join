@@ -54,8 +54,9 @@ $(PLUGIN_WIN32_ZIP): all
 		cp po/$${lang}.gmo \
 			win32-install-dir/$(PLUGIN)/locale/$${lang}/LC_MESSAGES/pidgin-save-conv-order.mo || exit 1;  \
 	done
-	unix2dos -n README.md win32-install-dir/README.md
-	unix2dos -n CHANGES.md win32-install-dir/CHANGES.md
+	for f in README.md CHANGES.md AUTHORS.md; do \
+		unix2dos -n $$f win32-install-dir/$$f; \
+	done
 	rm -f $(PLUGIN_WIN32_ZIP)
 	cd win32-install-dir && \
 		zip -r ../$(PLUGIN_WIN32_ZIP) *

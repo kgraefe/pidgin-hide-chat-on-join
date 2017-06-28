@@ -4,6 +4,7 @@ EXTRA_DIST = \
 	scripts/gen-version.sh \
 	CHANGES.md \
 	README.md \
+	AUTHORS.md \
 	VERSION
 
 
