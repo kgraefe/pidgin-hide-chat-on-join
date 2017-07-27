@@ -27,6 +27,7 @@
 #include <gtkdebug.h>
 
 static void (*create_conversation_ori)(PurpleConversation *conv);
+static void (*present_conversation_ori)(PurpleConversation *conv);
 
 static void conv_placement_fnc(PidginConversation *gtkconv) {
 	PidginWindow *win;
@@ -80,6 +81,22 @@ static void create_conversation_hook(PurpleConversation *conv) {
 	}
 }
 
+static void present_conversation_hook(PurpleConversation *conv) {
+	GdkModifierType state;
+	PurpleBlistNode *node = NULL;
+
+	if(
+		purple_conversation_get_type(conv) == PURPLE_CONV_TYPE_CHAT &&
+		(node = (PurpleBlistNode *)purple_blist_find_chat(conv->account, conv->name)) &&
+		purple_blist_node_get_bool(node, "hide-on-join") &&
+		!gtk_get_current_event_state(&state)
+	) {
+		/* Do nothing */
+	} else {
+		present_conversation_ori(conv);
+	}
+}
+
 void conversation_handler_init(void) {
 	PurpleConversationUiOps *conversation_ui_ops;
 
@@ -88,6 +105,8 @@ void conversation_handler_init(void) {
 	/* Let's hook into conversation between Pidgin and libpurple */
 	create_conversation_ori = conversation_ui_ops->create_conversation;
 	conversation_ui_ops->create_conversation = create_conversation_hook;
+	present_conversation_ori = conversation_ui_ops->present;
+	conversation_ui_ops->present = present_conversation_hook;
 }
 
 void conversation_handler_uninit(void) {
@@ -96,5 +115,6 @@ void conversation_handler_uninit(void) {
 	conversation_ui_ops = pidgin_conversations_get_conv_ui_ops();
 
 	conversation_ui_ops->create_conversation = create_conversation_ori;
+	conversation_ui_ops->present = present_conversation_ori;
 }
 
