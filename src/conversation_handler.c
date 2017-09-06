@@ -40,7 +40,9 @@ static void conv_placement_hidden_window_fnc(PidginConversation *gtkconv) {
 static void create_conversation_hook(PurpleConversation *conv) {
 	PurpleAccount *acc;
 	PurpleBlistNode *node;
+	PurpleLog *log;
 	PidginConvPlacementFunc place_ori;
+	double gc_time;
 
 	if(purple_conversation_get_type(conv) != PURPLE_CONV_TYPE_CHAT) {
 		goto show_conversation;
@@ -63,6 +65,16 @@ static void create_conversation_hook(PurpleConversation *conv) {
 	}
 
 	if(!purple_blist_node_get_bool(node, "hide-on-join")) {
+		goto show_conversation;
+	}
+
+	log = purple_account_get_log(acc, FALSE);
+	if(!log) {
+		goto show_conversation;
+	}
+
+	gc_time = difftime(time(0), log->time);
+	if(gc_time > 2.0) {
 		goto show_conversation;
 	}
 
