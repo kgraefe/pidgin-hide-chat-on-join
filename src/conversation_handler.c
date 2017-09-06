@@ -28,10 +28,9 @@
 
 static void (*create_conversation_ori)(PurpleConversation *conv);
 
-static void conv_placement_fnc(PidginConversation *gtkconv) {
+static void conv_placement_hidden_window_fnc(PidginConversation *gtkconv) {
 	PidginWindow *win;
 
-	/* make a hidden conversation window, it will be destroyed soon */
 	win = pidgin_conv_window_new();
 	pidgin_conv_window_hide(win);
 
@@ -39,45 +38,60 @@ static void conv_placement_fnc(PidginConversation *gtkconv) {
 }
 
 static void create_conversation_hook(PurpleConversation *conv) {
-	PurpleBlistNode *node = NULL;
+	PurpleBlistNode *node;
 	PidginConvPlacementFunc place_ori;
 
-	/* Hide the conversation if it is a chat that is on our buddy list and hascw
-	 * the hide-on-join flag.
-	 */
-	if(
-		purple_conversation_get_type(conv) == PURPLE_CONV_TYPE_CHAT &&
-		(node = (PurpleBlistNode *)purple_blist_find_chat(conv->account, conv->name)) &&
-		purple_blist_node_get_bool(node, "hide-on-join")
-	) {
-
-		/* Let's register our own placement function to place the conversation
-		 * in a hidden conversation window to avoid flickering */
-		place_ori = pidgin_conv_placement_get_current_func();
-		pidgin_conv_placement_set_current_func(conv_placement_fnc);
-
-		if(!pidgin_conv_placement_get_current_func()) {
-			warning(_("Activate tabs to avoid flickering!\n"));
-		}
-
-		create_conversation_ori(conv);
-
-		pidgin_conv_placement_set_current_func(place_ori);
-
-		/* You really don't want to close chats immediatly that aren't
-		 * persistent....
-		 */
-		if(!purple_blist_node_get_bool(node, "gtk-persistent")) {
-			purple_blist_node_set_bool(node, "gtk-persistent", TRUE);
-		}
-
-		/* "close" persistent chat to get it moved over in Pidgin's hidden
-		 * conversation window
-		 */
-		gtk_button_clicked(GTK_BUTTON(PIDGIN_CONVERSATION(conv)->close));
-	} else {
-		create_conversation_ori(conv);
+	if(purple_conversation_get_type(conv) != PURPLE_CONV_TYPE_CHAT) {
+		goto show_conversation;
 	}
+
+	node = (PurpleBlistNode *)purple_blist_find_chat(conv->account, conv->name);
+	if(!node) {
+		warning(
+			"Chat %s is not on the buddy list and will not be hidden.\n",
+			conv->name
+		);
+		goto show_conversation;
+	}
+
+	if(!purple_blist_node_get_bool(node, "hide-on-join")) {
+		goto show_conversation;
+	}
+
+	/* In order to avoid flickering, we place the new conversation in a new
+	 * hidden conversation window. Therefore, we need to register our own
+	 * placement function. Unfortunately that does not work if the user
+	 * deactivated tabs in the settings.
+	 */
+	place_ori = pidgin_conv_placement_get_current_func();
+	pidgin_conv_placement_set_current_func(conv_placement_hidden_window_fnc);
+	if(!pidgin_conv_placement_get_current_func()) {
+		warning(_("Activate tabs to avoid flickering!\n"));
+	}
+
+	/* Actually create conversation */
+	create_conversation_ori(conv);
+
+	/* Reset to previous placement function */
+	pidgin_conv_placement_set_current_func(place_ori);
+
+	/* Make sure to set the chat persistent. Otherwise it would be parted when
+	 * closing it automatically.
+	 */
+	if(!purple_blist_node_get_bool(node, "gtk-persistent")) {
+		purple_blist_node_set_bool(node, "gtk-persistent", TRUE);
+	}
+
+	/* "Close" persistent chat to get it moved over in Pidgin's hidden
+	 * conversation window
+	 */
+	gtk_button_clicked(GTK_BUTTON(PIDGIN_CONVERSATION(conv)->close));
+
+	return;
+
+show_conversation:
+	create_conversation_ori(conv);
+	return;
 }
 
 void conversation_handler_init(void) {
