@@ -1,7 +1,7 @@
 # Pidgin Hide Chat On Join Changes
 
 ## Version 1.1 (in development)
-- Add Brazilian Portuguese, Spanish and French language files
+- Add Brazilian Portuguese, and Spanish language files
 - Update German and Russian language files
 - Update plugin website
 
