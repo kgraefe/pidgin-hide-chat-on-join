@@ -23,6 +23,7 @@
 #include <plugin.h>
 
 void context_menu_init(PurplePlugin *plugin);
+void context_menu_uninit(PurplePlugin *plugin);
 
 #endif /* _CONTEXT_MENU_H */
 

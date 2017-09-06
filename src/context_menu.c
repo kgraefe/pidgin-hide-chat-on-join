@@ -56,3 +56,10 @@ void context_menu_init(PurplePlugin *plugin) {
 	);
 }
 
+void context_menu_uninit(PurplePlugin *plugin) {
+	purple_signal_disconnect(
+		purple_blist_get_handle(), "blist-node-extended-menu", plugin,
+		PURPLE_CALLBACK(extended_buddy_menu_cb)
+	);
+}
+

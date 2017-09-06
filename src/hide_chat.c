@@ -46,6 +46,9 @@ static gboolean plugin_load(PurplePlugin *_plugin) {
 }
 
 static gboolean plugin_unload(PurplePlugin *plugin) {
+	context_menu_uninit(plugin);
+	conversation_handler_uninit();
+
 	info(_("unloaded.\n"));
 	
 	return TRUE;
