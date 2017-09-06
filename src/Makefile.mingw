@@ -90,12 +90,9 @@ include $(PIDGIN_COMMON_RULES)
 ## TARGET DEFINITIONS
 ##
 
-.PHONY: all clean install
+.PHONY: all clean
 
 all: $(PLUGIN).dll
-
-install: all $(PIDGIN_INSTALL_PLUGINS_DIR)
-	cp $(PLUGIN).dll $(PIDGIN_INSTALL_PLUGINS_DIR)
 
 $(PLUGIN_OBJ): $(PLUGIN_TOP)/config.h $(PURPLE_VERSION_H)
 

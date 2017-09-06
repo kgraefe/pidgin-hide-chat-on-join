@@ -21,7 +21,7 @@ PLUGIN_WIN32_ZIP := $(PLUGIN)-$(PLUGIN_VERSION)-win32.zip
 
 $(shell mkdir -p .stamps)
 
-.PHONY: all install installer clean
+.PHONY: all clean
 
 all: config.h
 	$(MAKE) -C $(PLUGIN_SRC) -f Makefile.mingw all
