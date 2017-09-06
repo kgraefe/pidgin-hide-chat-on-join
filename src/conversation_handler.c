@@ -38,6 +38,7 @@ static void conv_placement_hidden_window_fnc(PidginConversation *gtkconv) {
 }
 
 static void create_conversation_hook(PurpleConversation *conv) {
+	PurpleAccount *acc;
 	PurpleBlistNode *node;
 	PidginConvPlacementFunc place_ori;
 
@@ -45,11 +46,18 @@ static void create_conversation_hook(PurpleConversation *conv) {
 		goto show_conversation;
 	}
 
-	node = (PurpleBlistNode *)purple_blist_find_chat(conv->account, conv->name);
+	acc = purple_conversation_get_account(conv);
+	if(!acc) {
+		goto show_conversation;
+	}
+
+	node = (PurpleBlistNode *)purple_blist_find_chat(acc, conv->name);
 	if(!node) {
 		warning(
-			"Chat %s is not on the buddy list and will not be hidden.\n",
-			conv->name
+			"Chat %s on %s (%s) is not in the buddy list and will not be hidden.\n",
+			conv->name,
+			purple_account_get_username(acc),
+			purple_account_get_protocol_name(acc)
 		);
 		goto show_conversation;
 	}
@@ -57,6 +65,13 @@ static void create_conversation_hook(PurpleConversation *conv) {
 	if(!purple_blist_node_get_bool(node, "hide-on-join")) {
 		goto show_conversation;
 	}
+
+	info(
+		"Hiding chat %s on %s (%s)\n",
+		conv->name,
+		purple_account_get_username(acc),
+		purple_account_get_protocol_name(acc)
+	);
 
 	/* In order to avoid flickering, we place the new conversation in a new
 	 * hidden conversation window. Therefore, we need to register our own
