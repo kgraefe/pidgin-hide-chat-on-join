@@ -40,7 +40,7 @@ static gboolean plugin_load(PurplePlugin *_plugin) {
 	context_menu_init(plugin);
 	conversation_handler_init();
 
-	info(_("loaded.\n"));
+	info("Plugin loaded.\n");
 	
 	return TRUE;
 }
@@ -49,7 +49,7 @@ static gboolean plugin_unload(PurplePlugin *plugin) {
 	context_menu_uninit(plugin);
 	conversation_handler_uninit();
 
-	info(_("unloaded.\n"));
+	info("Plugin unloaded.\n");
 	
 	return TRUE;
 }

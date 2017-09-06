@@ -81,7 +81,7 @@ static void create_conversation_hook(PurpleConversation *conv) {
 	place_ori = pidgin_conv_placement_get_current_func();
 	pidgin_conv_placement_set_current_func(conv_placement_hidden_window_fnc);
 	if(!pidgin_conv_placement_get_current_func()) {
-		warning(_("Activate tabs to avoid flickering!\n"));
+		warning("Activate tabs to avoid flickering!\n");
 	}
 
 	/* Actually create conversation */

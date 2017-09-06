@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-06-28 16:51+0200\n"
+"POT-Creation-Date: 2017-09-06 21:24+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Konrad Gräfe <konradgraefe@aol.com>, 2017\n"
 "Language-Team: Russian (https://www.transifex.com/kgraefe/teams/76234/ru/)\n"
@@ -26,28 +26,16 @@ msgstr "Не скрывать при входе"
 msgid "Hide on join"
 msgstr "Скрывать при входе"
 
-#: ../src/conversation_handler.c:60
-msgid "Activate tabs to avoid flickering!\n"
-msgstr ""
-
-#: ../src/hide_chat.c:43
-msgid "loaded.\n"
-msgstr "загружен.\n"
-
-#: ../src/hide_chat.c:49
-msgid "unloaded.\n"
-msgstr "выгружен.\n"
-
-#: ../src/hide_chat.c:104
+#: ../src/hide_chat.c:107
 msgid "Hide Chat on Join"
 msgstr "Прятать чат при входе"
 
-#: ../src/hide_chat.c:105
+#: ../src/hide_chat.c:108
 msgid "This plugin enables you to hide some chats while auto-joining them."
 msgstr ""
 "Этот модуль позволяет скрывать некоторые чаты при автоматическом входе"
 
-#: ../src/hide_chat.c:106
+#: ../src/hide_chat.c:109
 msgid ""
 "This plugin adds an entry in the context menu of every channel you have in "
 "your buddy list to allow you to hide the chat window when you join the "
