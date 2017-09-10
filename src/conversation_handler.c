@@ -27,6 +27,14 @@
 #include <gtkdebug.h>
 
 static void (*create_conversation_ori)(PurpleConversation *conv);
+static GHashTable *gcStartTimes = NULL;
+
+static void gc_signed_on_cb(PurpleConnection *gc) {
+	g_hash_table_insert(gcStartTimes, gc, GINT_TO_POINTER(time(0)));
+}
+static void gc_signed_off_cb(PurpleConnection *gc) {
+	g_hash_table_remove(gcStartTimes, gc);
+}
 
 static void conv_placement_hidden_window_fnc(PidginConversation *gtkconv) {
 	PidginWindow *win;
@@ -40,8 +48,8 @@ static void conv_placement_hidden_window_fnc(PidginConversation *gtkconv) {
 static void create_conversation_hook(PurpleConversation *conv) {
 	PurpleAccount *acc;
 	PurpleBlistNode *node;
-	PurpleLog *log;
 	PidginConvPlacementFunc place_ori;
+	int gcStartTime;
 	double gc_time;
 
 	if(purple_conversation_get_type(conv) != PURPLE_CONV_TYPE_CHAT) {
@@ -75,12 +83,9 @@ static void create_conversation_hook(PurpleConversation *conv) {
 		purple_blist_node_set_int(node, "hide-chat-state", HIDE_CHAT_STATE_HIDE);
 	}
 
-	log = purple_account_get_log(acc, FALSE);
-	if(!log) {
-		goto show_conversation;
-	}
+	gcStartTime = GPOINTER_TO_INT(g_hash_table_lookup(gcStartTimes, acc->gc));
 
-	gc_time = difftime(time(0), log->time);
+	gc_time = difftime(time(0), gcStartTime);
 	if(gc_time > 2.0) {
 		goto show_conversation;
 	}
@@ -128,8 +133,19 @@ show_conversation:
 	return;
 }
 
-void conversation_handler_init(void) {
+void conversation_handler_init(PurplePlugin *plugin) {
 	PurpleConversationUiOps *conversation_ui_ops;
+
+	gcStartTimes = g_hash_table_new(NULL, NULL);
+
+	purple_signal_connect(
+		purple_connections_get_handle(), "signed-on",
+		plugin, PURPLE_CALLBACK(gc_signed_on_cb), NULL
+	);
+	purple_signal_connect(
+		purple_connections_get_handle(), "signed-off",
+		plugin, PURPLE_CALLBACK(gc_signed_off_cb), NULL
+	);
 
 	conversation_ui_ops = pidgin_conversations_get_conv_ui_ops();
 
@@ -138,11 +154,21 @@ void conversation_handler_init(void) {
 	conversation_ui_ops->create_conversation = create_conversation_hook;
 }
 
-void conversation_handler_uninit(void) {
+void conversation_handler_uninit(PurplePlugin *plugin) {
 	PurpleConversationUiOps *conversation_ui_ops;
 
 	conversation_ui_ops = pidgin_conversations_get_conv_ui_ops();
-
 	conversation_ui_ops->create_conversation = create_conversation_ori;
+
+	purple_signal_disconnect(
+		purple_connections_get_handle(), "signed-on",
+		plugin, PURPLE_CALLBACK(gc_signed_on_cb)
+	);
+	purple_signal_disconnect(
+		purple_connections_get_handle(), "signed-off",
+		plugin, PURPLE_CALLBACK(gc_signed_off_cb)
+	);
+
+	g_hash_table_destroy(gcStartTimes);
 }
 
