@@ -64,8 +64,15 @@ static void create_conversation_hook(PurpleConversation *conv) {
 		goto show_conversation;
 	}
 
-	if(!purple_blist_node_get_bool(node, "hide-on-join")) {
+	switch(purple_blist_node_get_int(node, "hide-chat-state")) {
+	case HIDE_CHAT_STATE_SHOW:
 		goto show_conversation;
+
+	case HIDE_CHAT_STATE_HIDE:
+		break;
+
+	default:
+		purple_blist_node_set_int(node, "hide-chat-state", HIDE_CHAT_STATE_HIDE);
 	}
 
 	log = purple_account_get_log(acc, FALSE);
