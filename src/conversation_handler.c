@@ -50,7 +50,7 @@ static void create_conversation_hook(PurpleConversation *conv) {
 	PurpleBlistNode *node;
 	PidginConvPlacementFunc place_ori;
 	int gcStartTime;
-	double gc_time;
+	double gcDuration;
 
 	if(purple_conversation_get_type(conv) != PURPLE_CONV_TYPE_CHAT) {
 		goto show_conversation;
@@ -85,8 +85,8 @@ static void create_conversation_hook(PurpleConversation *conv) {
 
 	gcStartTime = GPOINTER_TO_INT(g_hash_table_lookup(gcStartTimes, acc->gc));
 
-	gc_time = difftime(time(0), gcStartTime);
-	if(gc_time > 2.0) {
+	gcDuration = difftime(time(0), gcStartTime);
+	if(gcDuration > 2.0) {
 		goto show_conversation;
 	}
 
