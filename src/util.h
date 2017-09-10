@@ -28,6 +28,7 @@ enum HideChatState {
 	HIDE_CHAT_STATE_HIDE  = 2,
 };
 
+#define error(...)   purple_debug_error(PLUGIN_STATIC_NAME, __VA_ARGS__)
 #define warning(...) purple_debug_warning(PLUGIN_STATIC_NAME, __VA_ARGS__)
 #define info(...)    purple_debug_info(PLUGIN_STATIC_NAME, __VA_ARGS__)
 

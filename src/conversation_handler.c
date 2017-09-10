@@ -23,11 +23,15 @@
 
 #include "conversation_handler.h"
 
+#include <gtkblist.h>
 #include <gtkconv.h>
+#include <gtkutils.h>
 #include <gtkdebug.h>
+#include <pidginstock.h>
 
 static void (*create_conversation_ori)(PurpleConversation *conv);
 static GHashTable *gcStartTimes = NULL;
+static GList *miniDialogs = NULL;
 
 static void gc_signed_on_cb(PurpleConnection *gc) {
 	g_hash_table_insert(gcStartTimes, gc, GINT_TO_POINTER(time(0)));
@@ -45,12 +49,38 @@ static void conv_placement_hidden_window_fnc(PidginConversation *gtkconv) {
 	pidgin_conv_window_add_gtkconv(win, gtkconv);
 }
 
+static void mini_dialog_show_chat_cb(PurpleConversation *conv) {
+	PurpleAccount *acc;
+	PurpleBlistNode *node = NULL;
+
+	acc = purple_conversation_get_account(conv);
+	if(acc) {
+		node = (PurpleBlistNode *)purple_blist_find_chat(acc, conv->name);
+	}
+
+	if(node) {
+		purple_blist_node_set_int(node,
+			"hide-chat-state", HIDE_CHAT_STATE_SHOW
+		);
+	}
+
+	purple_conversation_present(conv);
+}
+static void mini_dialog_destroyed_cb(GtkWidget *w, GtkWidget **p) {
+	miniDialogs = g_list_remove(miniDialogs, w);
+}
+static void mini_dialog_destroy(gpointer p, gpointer user_data) {
+	gtk_widget_destroy((GtkWidget *)p);
+}
+
 static void create_conversation_hook(PurpleConversation *conv) {
 	PurpleAccount *acc;
 	PurpleBlistNode *node;
 	PidginConvPlacementFunc place_ori;
 	int gcStartTime;
 	double gcDuration;
+	GtkWidget *miniDialog;
+	gchar *msg;
 
 	if(purple_conversation_get_type(conv) != PURPLE_CONV_TYPE_CHAT) {
 		goto show_conversation;
@@ -72,23 +102,62 @@ static void create_conversation_hook(PurpleConversation *conv) {
 		goto show_conversation;
 	}
 
+	gcStartTime = GPOINTER_TO_INT(g_hash_table_lookup(gcStartTimes, acc->gc));
+	gcDuration = difftime(time(0), gcStartTime);
+	if(gcDuration > 2.0) {
+		goto show_conversation;
+	}
+
 	switch(purple_blist_node_get_int(node, "hide-chat-state")) {
 	case HIDE_CHAT_STATE_SHOW:
 		goto show_conversation;
+
+	case HIDE_CHAT_STATE_UNSET:
+		msg = g_strdup_printf(
+			/* Translators: The first parameter is the name of the chat, second
+			 *              is the name of the account and third is the name of
+			 *              the protocol.
+			 */
+			_("%s on %s (%s) has been hidden the first time.\n\nHow to proceed in the future?"),
+			conv->name,
+			purple_account_get_username(acc),
+			purple_account_get_protocol_name(acc)
+		);
+		miniDialog = pidgin_make_mini_dialog(
+			NULL, PIDGIN_STOCK_DIALOG_QUESTION,
+			_("Hide Chat on Join"), msg,
+			conv,
+			_("Hide"), NULL,
+			_("Show"), PURPLE_CALLBACK(mini_dialog_show_chat_cb),
+			NULL
+		);
+		free(msg);
+
+		g_signal_connect(
+			G_OBJECT(miniDialog), "destroy",
+			G_CALLBACK(mini_dialog_destroyed_cb), &miniDialog
+		);
+		pidgin_blist_add_alert(miniDialog);
+		purple_blist_set_visible(TRUE);
+
+		miniDialogs = g_list_append(miniDialogs, miniDialog);
+		
+		purple_blist_node_set_int(node, "hide-chat-state", HIDE_CHAT_STATE_HIDE);
+		break;
 
 	case HIDE_CHAT_STATE_HIDE:
 		break;
 
 	default:
-		purple_blist_node_set_int(node, "hide-chat-state", HIDE_CHAT_STATE_HIDE);
-	}
-
-	gcStartTime = GPOINTER_TO_INT(g_hash_table_lookup(gcStartTimes, acc->gc));
-
-	gcDuration = difftime(time(0), gcStartTime);
-	if(gcDuration > 2.0) {
+		error(
+			"Unknown state %d for chat %s on %s (%s)\n",
+			purple_blist_node_get_int(node, "hide-chat-state"), conv->name,
+			purple_account_get_username(acc),
+			purple_account_get_protocol_name(acc)
+		);
 		goto show_conversation;
 	}
+
 
 	info(
 		"Hiding chat %s on %s (%s)\n",
@@ -168,6 +237,9 @@ void conversation_handler_uninit(PurplePlugin *plugin) {
 		purple_connections_get_handle(), "signed-off",
 		plugin, PURPLE_CALLBACK(gc_signed_off_cb)
 	);
+
+	g_list_foreach(miniDialogs, mini_dialog_destroy, NULL);
+	g_list_free(miniDialogs);
 
 	g_hash_table_destroy(gcStartTimes);
 }
