@@ -2,6 +2,9 @@ EXTRA_DIST = \
 	@@HEADERFILES@@ \
 	scripts/gen-mingw-config_h.sh \
 	scripts/gen-version.sh \
+	Makefile.mingw \
+	src/Makefile.mingw \
+	po/Makefile.mingw \
 	CHANGES.md \
 	README.md \
 	AUTHORS.md \
