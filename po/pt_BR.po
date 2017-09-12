@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-09-06 21:58+0200\n"
+"POT-Creation-Date: 2017-09-12 22:02+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Konrad Gräfe <konradgraefe@aol.com>, 2017\n"
 "Language-Team: Portuguese (Brazil) (https://www.transifex.com/kgraefe/teams/76234/pt_BR/)\n"
@@ -18,17 +18,40 @@ msgstr ""
 "Language: pt_BR\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
-#: ../src/context_menu.c:41
+#: ../src/context_menu.c:43
 msgid "Do not hide on join"
 msgstr "Não ocultar ao entrar"
 
-#: ../src/context_menu.c:46
+#: ../src/context_menu.c:54
 msgid "Hide on join"
 msgstr "Ocultar ao entrar"
 
-#: ../src/hide_chat.c:107
+#. Translators: The first parameter is the name of the chat, second
+#. *              is the name of the account and third is the name of
+#. *              the protocol.
+#: ../src/conversation_handler.c:128
+#, c-format
+msgid ""
+"%s on %s (%s) has been hidden the first time.\n"
+"\n"
+"How to proceed in the future?"
+msgstr ""
+
+#: ../src/conversation_handler.c:135 ../src/hide_chat.c:107
 msgid "Hide Chat on Join"
 msgstr "Ocultar bate-papo ao entrar"
+
+#: ../src/conversation_handler.c:137
+msgid "Hide"
+msgstr ""
+
+#: ../src/conversation_handler.c:138
+msgid "Show"
+msgstr ""
+
+#: ../src/conversation_handler.c:224
+msgid "Hide Chat On Join Timeout (seconds)"
+msgstr ""
 
 #: ../src/hide_chat.c:108
 msgid "This plugin enables you to hide some chats while auto-joining them."
