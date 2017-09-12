@@ -4,7 +4,7 @@
 **WARNING:** This update changes the behavior of the plugin. Old settings will
              be lost.
 
-- Hide all chats by default (GitHub #4)
+- Hide all chats by default (Github #4)
 - Only hide chats within a timeframe after the account connected. The timeout
   is configurable on a per account basis. (Github #4 and #5)
 - Notify when hiding a chat the first time
