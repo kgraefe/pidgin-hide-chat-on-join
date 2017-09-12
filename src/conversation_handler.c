@@ -28,6 +28,10 @@
 #include <gtkutils.h>
 #include <gtkdebug.h>
 #include <pidginstock.h>
+#include <accountopt.h>
+
+#define PREF_ACCOUNT_TIMEOUT "hide-chat-timeout"
+#define PREF_ACCOUNT_TIMEOUT_DEFAULT 2
 
 static void (*create_conversation_ori)(PurpleConversation *conv);
 static GHashTable *gcStartTimes = NULL;
@@ -78,7 +82,7 @@ static void create_conversation_hook(PurpleConversation *conv) {
 	PurpleBlistNode *node;
 	PidginConvPlacementFunc place_ori;
 	int gcStartTime;
-	double gcDuration;
+	double gcDuration, gcTimeout;
 	GtkWidget *miniDialog;
 	gchar *msg;
 
@@ -104,7 +108,10 @@ static void create_conversation_hook(PurpleConversation *conv) {
 
 	gcStartTime = GPOINTER_TO_INT(g_hash_table_lookup(gcStartTimes, acc->gc));
 	gcDuration = difftime(time(0), gcStartTime);
-	if(gcDuration > 2.0) {
+	gcTimeout = (double)purple_account_get_int(acc,
+		PREF_ACCOUNT_TIMEOUT, PREF_ACCOUNT_TIMEOUT_DEFAULT
+	);
+	if(gcDuration > gcTimeout) {
 		goto show_conversation;
 	}
 
@@ -204,6 +211,25 @@ show_conversation:
 
 void conversation_handler_init(PurplePlugin *plugin) {
 	PurpleConversationUiOps *conversation_ui_ops;
+	GList *l;
+	PurplePlugin *prpl;
+	PurplePluginProtocolInfo *prplInfo;
+	PurpleAccountOption *option;
+
+	for(l = purple_plugins_get_protocols(); l != NULL; l = l->next) {
+		prpl = (PurplePlugin *)l->data;
+		prplInfo = PURPLE_PLUGIN_PROTOCOL_INFO(prpl);
+		if(prplInfo != NULL) {
+			option = purple_account_option_int_new(
+				_("Hide Chat On Join Timeout (seconds)"),
+				PREF_ACCOUNT_TIMEOUT, PREF_ACCOUNT_TIMEOUT_DEFAULT
+			);
+			prplInfo->protocol_options = g_list_append(
+				prplInfo->protocol_options, option
+			);
+
+		}
+	}
 
 	gcStartTimes = g_hash_table_new(NULL, NULL);
 
@@ -216,15 +242,40 @@ void conversation_handler_init(PurplePlugin *plugin) {
 		plugin, PURPLE_CALLBACK(gc_signed_off_cb), NULL
 	);
 
-	conversation_ui_ops = pidgin_conversations_get_conv_ui_ops();
-
 	/* Let's hook into conversation between Pidgin and libpurple */
+	conversation_ui_ops = pidgin_conversations_get_conv_ui_ops();
 	create_conversation_ori = conversation_ui_ops->create_conversation;
 	conversation_ui_ops->create_conversation = create_conversation_hook;
 }
 
 void conversation_handler_uninit(PurplePlugin *plugin) {
 	PurpleConversationUiOps *conversation_ui_ops;
+	GList *l, *options;
+	PurplePlugin *prpl;
+	PurplePluginProtocolInfo *prplInfo;
+	PurpleAccountOption *option;
+
+	for(l = purple_plugins_get_protocols(); l != NULL; l = l->next) {
+		prpl = (PurplePlugin *)l->data;
+		prplInfo = PURPLE_PLUGIN_PROTOCOL_INFO(prpl);
+		if(prplInfo != NULL) {
+			options = prplInfo->protocol_options;
+			while (options != NULL) {
+				option = (PurpleAccountOption *) options->data;
+				if(strcmp(
+					PREF_ACCOUNT_TIMEOUT,
+					purple_account_option_get_setting(option)
+				) == 0) {
+					prplInfo->protocol_options = g_list_delete_link(
+						prplInfo->protocol_options, options
+					);
+					purple_account_option_destroy(option);
+					break;
+				}
+				options = options->next;
+			}
+		}
+	}
 
 	conversation_ui_ops = pidgin_conversations_get_conv_ui_ops();
 	conversation_ui_ops->create_conversation = create_conversation_ori;
