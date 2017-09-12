@@ -27,7 +27,7 @@
 #include "util.h"
 
 static void set_hide_on_join(PurpleBlistNode *node, gpointer data) {
-	purple_blist_node_set_bool(node, "hide-on-join", GPOINTER_TO_BOOLEAN(data));
+	purple_blist_node_set_int(node, "hide-chat-state", GPOINTER_TO_INT(data));
 }
 
 static void extended_buddy_menu_cb(PurpleBlistNode *node, GList **menu) {
@@ -36,15 +36,24 @@ static void extended_buddy_menu_cb(PurpleBlistNode *node, GList **menu) {
 	if(purple_blist_node_get_flags(node) & PURPLE_BLIST_NODE_FLAG_NO_SAVE)
 		return;
 
-	if(purple_blist_node_get_bool(node, "hide-on-join")) {
-		*menu = g_list_append(*menu, purple_menu_action_new(
-			_("Do not hide on join"), PURPLE_CALLBACK(set_hide_on_join),
-			GBOOLEAN_TO_POINTER(FALSE), NULL)
+	switch(purple_blist_node_get_int(node, "hide-chat-state")) {
+	case HIDE_CHAT_STATE_HIDE:
+		*menu = g_list_append(*menu,
+			purple_menu_action_new(
+				_("Do not hide on join"), PURPLE_CALLBACK(set_hide_on_join),
+				GINT_TO_POINTER(HIDE_CHAT_STATE_SHOW), NULL
+			)
 		);
-	} else {
-		*menu = g_list_append(*menu, purple_menu_action_new(
-			_("Hide on join"), PURPLE_CALLBACK(set_hide_on_join),
-			GBOOLEAN_TO_POINTER(TRUE), NULL)
+		break;
+
+	case HIDE_CHAT_STATE_UNSET:
+	case HIDE_CHAT_STATE_SHOW:
+	default:
+		*menu = g_list_append(*menu,
+			purple_menu_action_new(
+				_("Hide on join"), PURPLE_CALLBACK(set_hide_on_join),
+				GINT_TO_POINTER(HIDE_CHAT_STATE_HIDE), NULL
+			)
 		);
 	}
 }

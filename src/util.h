@@ -22,9 +22,13 @@
 
 #include <gtkconv.h>
 
-#define GBOOLEAN_TO_POINTER(i) (GINT_TO_POINTER ((i) ? 2 : 1))
-#define GPOINTER_TO_BOOLEAN(i) ((gboolean) ((GPOINTER_TO_INT(i) == 2) ? TRUE : FALSE))
+enum HideChatState {
+	HIDE_CHAT_STATE_UNSET = 0,
+	HIDE_CHAT_STATE_SHOW  = 1,
+	HIDE_CHAT_STATE_HIDE  = 2,
+};
 
+#define error(...)   purple_debug_error(PLUGIN_STATIC_NAME, __VA_ARGS__)
 #define warning(...) purple_debug_warning(PLUGIN_STATIC_NAME, __VA_ARGS__)
 #define info(...)    purple_debug_info(PLUGIN_STATIC_NAME, __VA_ARGS__)
 
