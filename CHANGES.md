@@ -1,6 +1,6 @@
 # Pidgin Hide Chat On Join Changes
 
-## Version 2.0 (in development)
+## Version 2.0 (2017-09-12)
 **WARNING:** This update changes the behavior of the plugin. Old settings will
              be lost.
 
