@@ -48,11 +48,12 @@ $(PLUGIN_WIN32_ZIP): all
 	mkdir -p win32-install-dir/$(PLUGIN)/plugins
 	cp src/pidgin-hide-chat.dll win32-install-dir/$(PLUGIN)/plugins
 	$(STRIP) win32-install-dir/$(PLUGIN)/plugins/pidgin-hide-chat.dll
+	GETTEXT_PKG=$$(awk -F= '/GETTEXT_PACKAGE=/ {print $$2}' configure.ac); \
 	for f in po/*.po; do \
 		lang=$$(basename $$f .po) || exit 1; \
 		mkdir -p win32-install-dir/$(PLUGIN)/locale/$${lang}/LC_MESSAGES || exit 1; \
 		cp po/$${lang}.gmo \
-			win32-install-dir/$(PLUGIN)/locale/$${lang}/LC_MESSAGES/pidgin-save-conv-order.mo || exit 1;  \
+			win32-install-dir/$(PLUGIN)/locale/$${lang}/LC_MESSAGES/$${GETTEXT_PKG}.mo || exit 1;  \
 	done
 	for f in README.md CHANGES.md AUTHORS.md COPYING; do \
 		unix2dos -n $$f win32-install-dir/$$f; \
