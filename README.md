@@ -17,7 +17,7 @@ See below for how to compile the source code version into a binary ZIP file.
 To install the plugin on Linux you need to extract a release tarball and compile
 it from source:
 
-    sudo apt-get install pidgin-dev
+    sudo apt-get install pidgin-dev intltool
     ./configure
     make
     sudo make install
