@@ -1,6 +1,6 @@
 # Pidgin Hide Chat On Join Changes
 
-## version 2.2 (in development)
+## Version 2.2 (in development)
 - Fix possible memory corruption (Github #13)
 
 ## Version 2.1 (2017-12-01)
