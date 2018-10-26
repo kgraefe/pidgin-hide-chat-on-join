@@ -138,7 +138,7 @@ static void create_conversation_hook(PurpleConversation *conv) {
 			_("Show"), PURPLE_CALLBACK(mini_dialog_show_chat_cb),
 			NULL
 		);
-		free(msg);
+		g_free(msg);
 
 		g_signal_connect(
 			G_OBJECT(miniDialog), "destroy",

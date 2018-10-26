@@ -1,5 +1,8 @@
 # Pidgin Hide Chat On Join Changes
 
+## version 2.2 (in development)
+- Fix possible memory corruption (Github #13)
+
 ## Version 2.1 (2017-12-01)
 - Fix filename of language files in Win32 binary distribution (Github #8)
 - Update German translation (Github #9)
