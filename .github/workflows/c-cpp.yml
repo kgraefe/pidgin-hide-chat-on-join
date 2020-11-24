@@ -15,10 +15,10 @@ jobs:
     - uses: actions/checkout@v2
       with:
         fetch-depth: '0'
+    - name: Install depenencies
+      run: sudo apt install pidgin-dev intltool
     - name: autogen
-      run: |
-          sudo apt install gettext
-          ./autogen.sh
+      run: ./autogen.sh
     - name: configure
       run: ./configure
     - name: make
