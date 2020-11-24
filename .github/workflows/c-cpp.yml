@@ -13,8 +13,8 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
-    - name: autogen
-      run: git tag && ./autogen.sh
+    - run: git fetch --depth=1 origin +refs/tags/*:refs/tags/*
+    - run: ./autogen.sh
     - name: configure
       run: ./configure
     - name: make
